@@ -13,6 +13,7 @@
 		977E3D0D1F6A756E001A123F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 977E3D0B1F6A756E001A123F /* Main.storyboard */; };
 		977E3D0F1F6A756E001A123F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 977E3D0E1F6A756E001A123F /* Assets.xcassets */; };
 		977E3D121F6A756E001A123F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 977E3D101F6A756E001A123F /* LaunchScreen.storyboard */; };
+		977E3D1C1F6A7A70001A123F /* LJURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 977E3D1B1F6A7A70001A123F /* LJURLProtocol.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		977E3D0E1F6A756E001A123F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		977E3D111F6A756E001A123F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		977E3D131F6A756E001A123F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		977E3D1A1F6A7A70001A123F /* LJURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LJURLProtocol.h; sourceTree = "<group>"; };
+		977E3D1B1F6A7A70001A123F /* LJURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LJURLProtocol.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		977E3D011F6A756E001A123F /* NSURLProtocol */ = {
 			isa = PBXGroup;
 			children = (
+				977E3D191F6A7A32001A123F /* LJURLProtocol */,
 				977E3D051F6A756E001A123F /* AppDelegate.h */,
 				977E3D061F6A756E001A123F /* AppDelegate.m */,
 				977E3D081F6A756E001A123F /* ViewController.h */,
@@ -77,6 +81,15 @@
 				977E3D031F6A756E001A123F /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		977E3D191F6A7A32001A123F /* LJURLProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				977E3D1A1F6A7A70001A123F /* LJURLProtocol.h */,
+				977E3D1B1F6A7A70001A123F /* LJURLProtocol.m */,
+			);
+			path = LJURLProtocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				977E3D0A1F6A756E001A123F /* ViewController.m in Sources */,
+				977E3D1C1F6A7A70001A123F /* LJURLProtocol.m in Sources */,
 				977E3D071F6A756E001A123F /* AppDelegate.m in Sources */,
 				977E3D041F6A756E001A123F /* main.m in Sources */,
 			);
