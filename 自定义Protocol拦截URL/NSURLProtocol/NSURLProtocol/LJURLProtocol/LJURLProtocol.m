@@ -12,8 +12,8 @@ static NSString * const URLProtocolHandledKey = @"URLProtocolHandledKey";
 
 @interface LJURLProtocol()<NSURLSessionTaskDelegate, NSURLSessionDataDelegate>
 @property (nonatomic, strong) NSURLSessionDataTask *dataTask;
-@property (nonatomic, strong) NSURLResponse *urlResponse;
-@property (nonatomic, strong) NSMutableData *receivedData;
+//@property (nonatomic, strong) NSURLResponse *urlResponse;
+//@property (nonatomic, strong) NSMutableData *receivedData;
 @end
 
 @implementation LJURLProtocol
@@ -54,15 +54,15 @@ static NSString * const URLProtocolHandledKey = @"URLProtocolHandledKey";
         return request;
     }
     
-    if ([originURLString rangeOfString:@"56.com"].location != NSNotFound) {
-        return request;
-    }
-    
-    // 替换请求地址
-    NSString *ip = @"cn.bing.com";
-    NSString *urlStr = [originURLString stringByReplacingCharactersInRange:hostRange withString:ip];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    request.URL = url;
+//    if ([originURLString rangeOfString:@"56.com"].location != NSNotFound) {
+//        return request;
+//    }
+//    
+//    // 替换请求地址
+//    NSString *ip = @"cn.bing.com";
+//    NSString *urlStr = [originURLString stringByReplacingCharactersInRange:hostRange withString:ip];
+//    NSURL *url = [NSURL URLWithString:urlStr];
+//    request.URL = url;
     return request;
 }
 
@@ -96,17 +96,19 @@ static NSString * const URLProtocolHandledKey = @"URLProtocolHandledKey";
     [self.dataTask resume];
 }
 
+// 当停止加载的时候，把所有的资源都置为空
 - (void)stopLoading {
     [self.dataTask cancel];
     self.dataTask = nil;
-    self.receivedData = nil;
-    self.urlResponse = nil;
+//    self.receivedData = nil;
+//    self.urlResponse = nil;
 }
 
+// 当收到响应的时候
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSessionResponseDisposition))completionHandler {
     [self.client URLProtocol:self didReceiveResponse:response cacheStoragePolicy:NSURLCacheStorageNotAllowed];
-    self.urlResponse = response;
-    self.receivedData = [NSMutableData data];
+//    self.urlResponse = response;
+//    self.receivedData = [NSMutableData data];
     completionHandler(NSURLSessionResponseAllow);
     
     NSLog(@"threadcompletionHandler--%@", [NSThread currentThread]);
@@ -115,7 +117,7 @@ static NSString * const URLProtocolHandledKey = @"URLProtocolHandledKey";
 
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
     [self.client URLProtocol:self didLoadData:data];
-    [self.receivedData appendData:data];
+//    [self.receivedData appendData:data];
     NSLog(@"threaddidReceiveData--%@", [NSThread currentThread]);
 }
 

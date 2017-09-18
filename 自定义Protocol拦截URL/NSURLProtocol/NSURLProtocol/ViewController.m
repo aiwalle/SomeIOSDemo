@@ -19,7 +19,14 @@
 
 @implementation ViewController
 - (IBAction)loadBtnClick:(UIButton *)sender {
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+    NSURLRequest *request = nil;
+    if (!self.textField.text.length) {
+        request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+        [self.webView loadRequest:request];
+    } else {
+        request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.textField.text]];
+    }
+    
     [self.webView loadRequest:request];
 }
 
