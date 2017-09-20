@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import <WebKit/WebKit.h>
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -27,7 +27,11 @@
         request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.textField.text]];
     }
     
-    [self.webView loadRequest:request];
+    WKWebView *web = [[WKWebView alloc] initWithFrame:CGRectMake(20, 300, 300, 200)];
+    [self.view addSubview:web];
+    [web loadRequest:request];
+    
+//    [self.webView loadRequest:request];
 }
 
 - (void)viewDidLoad {
