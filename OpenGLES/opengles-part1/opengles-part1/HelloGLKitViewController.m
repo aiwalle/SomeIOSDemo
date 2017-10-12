@@ -26,6 +26,8 @@
     // 进入前台是否继续
     self.resumeOnDidBecomeActive = YES;
     
+    
+    
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
     
     if (!self.context) {
