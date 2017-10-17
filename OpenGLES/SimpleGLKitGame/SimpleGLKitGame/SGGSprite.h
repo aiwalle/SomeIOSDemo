@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <GLKit/GLKit.h>
 @interface SGGSprite : NSObject
-
+- (instancetype)initWithFile:(NSString *)fileName effect:(GLKBaseEffect *)effect;
+- (void)render;
 @end
