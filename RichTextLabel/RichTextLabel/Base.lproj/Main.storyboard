@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -60,16 +59,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC0-iF-3Dc">
-                                <rect key="frame" x="166" y="560" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XC0-iF-3Dc">
+                                <rect key="frame" x="0.0" y="541" width="375" height="39.5"/>
+                                <color key="backgroundColor" red="0.83529411760000005" green="0.5450980392" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XC0-iF-3Dc" secondAttribute="trailing" id="3hn-bn-p6J"/>
+                            <constraint firstItem="zbL-bv-2XM" firstAttribute="top" secondItem="XC0-iF-3Dc" secondAttribute="bottom" constant="71" id="7tM-cZ-PQV"/>
+                            <constraint firstItem="XC0-iF-3Dc" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="A1X-7S-V08"/>
                             <constraint firstItem="veo-LZ-vXD" firstAttribute="top" secondItem="L5y-C5-6o1" secondAttribute="bottom" id="MkF-pP-ujn"/>
                             <constraint firstItem="veo-LZ-vXD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U72-nS-dc3"/>
                             <constraint firstItem="9wS-6P-amj" firstAttribute="top" secondItem="zbL-bv-2XM" secondAttribute="bottom" id="WNY-Cb-rip"/>
@@ -80,6 +82,7 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="veo-LZ-vXD" id="qHs-GD-wn9"/>
+                        <outlet property="oneLabel" destination="XC0-iF-3Dc" id="RaK-nl-LAy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

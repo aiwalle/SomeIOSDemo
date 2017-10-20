@@ -27,7 +27,7 @@
     
     self = [super initWithCoder:coder];
     if (self) {
-        self.backgroundColor = [UIColor grayColor];
+        self.backgroundColor = [UIColor whiteColor];
         [self setupSubviews];
     }
     return self;

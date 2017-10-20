@@ -7,7 +7,7 @@
 //
 
 #import "NSString+Extension.h"
-
+#import "SDWebImageDownloader.h"
 @implementation NSString (Extension)
 - (CGSize)sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
     CGSize result;
@@ -42,5 +42,98 @@
     CGSize size = [self sizeForFont:font size:CGSizeMake(width, HUGE) mode:NSLineBreakByWordWrapping];
     return size.height;
 }
+
++ (CGFloat)heightForRowNumber:(int)number font:(UIFont *)font {
+    CGSize size = [@"test" sizeForFont:font size:CGSizeMake(HUGE, HUGE) mode:NSLineBreakByWordWrapping];
+    CGFloat oneLineHeight = size.height;
+    // 确保高度能完全够用，在计算高度时+2
+    return oneLineHeight * number + 2;
+}
+
++ (NSAttributedString *)changeLineSpaceForString:(NSString *)str WithSpace:(float)space {
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:space];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
+    return [attributedString copy];
+    
+}
+
++ (NSAttributedString *)changeWordSpaceForString:(NSString *)str WithSpace:(float)space {
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str attributes:@{NSKernAttributeName:@(space)}];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
+    return [attributedString copy];
+}
+
++ (NSAttributedString *)changeSpaceForString:(NSString *)str withLineSpace:(float)lineSpace WordSpace:(float)wordSpace {
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:str attributes:@{NSKernAttributeName:@(wordSpace)}];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:lineSpace];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
+    return [attributedString copy];
+    
+}
+
++ (NSAttributedString *)attributedStringWithImge:(NSString *)imageName contentString:(NSString *)str font:(UIFont *)font{
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] init];
+    NSMutableAttributedString *textAttrStr = [[NSMutableAttributedString alloc] initWithString:str];
+    NSTextAttachment *attach = [[NSTextAttachment alloc] init];
+    UIImage *img = [UIImage imageNamed:imageName];
+    //计算图片大小，与文字同高，按比例设置宽度
+    CGFloat imgH = font.pointSize;
+    CGFloat imgW = (img.size.width / img.size.height) * imgH;
+    //计算文字padding-top ，使图片垂直居中
+    CGFloat textPaddingTop = (font.lineHeight - font.pointSize) / 2;
+    attach.bounds = CGRectMake(0, -textPaddingTop-1, imgW, imgH);
+    
+    attach.image = img;
+    NSAttributedString *imgStr = [NSAttributedString attributedStringWithAttachment:attach];
+    [attributedString appendAttributedString:imgStr];
+    [attributedString appendAttributedString:textAttrStr];
+    return [attributedString copy];
+}
+
+/**
+ 为UILabel首部设置图片标签
+ 
+ @param text 文本
+ @param images 标签数组
+ @param span 标签间距
+ */
++ (NSAttributedString *)setText:(NSString *)text frontImages:(NSArray<UIImage *> *)images imageSpan:(CGFloat)span font:(UIFont *)font
+{
+    NSMutableAttributedString *textAttrStr = [[NSMutableAttributedString alloc] init];
+    
+    for (UIImage *img in images) {//遍历添加标签
+        
+        NSTextAttachment *attach = [[NSTextAttachment alloc] init];
+        attach.image = img;
+        //计算图片大小，与文字同高，按比例设置宽度
+        CGFloat imgH = font.pointSize;
+        CGFloat imgW = (img.size.width / img.size.height) * imgH;
+        //计算文字padding-top ，使图片垂直居中
+        CGFloat textPaddingTop = (font.lineHeight - font.pointSize) / 2;
+        attach.bounds = CGRectMake(0, -textPaddingTop-1 , imgW, imgH);
+        
+        NSAttributedString *imgStr = [NSAttributedString attributedStringWithAttachment:attach];
+        [textAttrStr appendAttributedString:imgStr];
+        //标签后添加空格
+        [textAttrStr appendAttributedString:[[NSAttributedString alloc] initWithString:@" "]];
+    }
+    
+    //设置显示文本
+    [textAttrStr appendAttributedString:[[NSAttributedString alloc]initWithString:text]];
+    //设置间距
+    if (span != 0) {
+        [textAttrStr addAttribute:NSKernAttributeName value:@(span)
+                            range:NSMakeRange(0, images.count * 2/*由于图片也会占用一个单位长度,所以带上空格数量，需要 *2 */)];
+    }
+    return [textAttrStr copy];
+}
+
 
 @end
