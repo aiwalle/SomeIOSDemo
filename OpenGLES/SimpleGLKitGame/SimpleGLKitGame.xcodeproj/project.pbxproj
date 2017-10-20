@@ -18,6 +18,13 @@
 		ECA4BA4E1F90B3450016F559 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA4BA4D1F90B3450016F559 /* GLKit.framework */; };
 		ECA4BA511F90B3A80016F559 /* SGGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA4BA501F90B3A80016F559 /* SGGViewController.m */; };
 		ECA4BA541F90B8CC0016F559 /* SGGSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA4BA531F90B8CC0016F559 /* SGGSprite.m */; };
+		ECC49A181F96FE8500C1604E /* background-music-aac.caf in Resources */ = {isa = PBXBuildFile; fileRef = ECC49A111F96F36800C1604E /* background-music-aac.caf */; };
+		ECC49A191F96FE8900C1604E /* pew-pew.wav in Resources */ = {isa = PBXBuildFile; fileRef = ECC49A121F96F36800C1604E /* pew-pew.wav */; };
+		ECC49A1A1F96FE8C00C1604E /* Player.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC49A131F96F36800C1604E /* Player.png */; };
+		ECC49A1B1F96FE9700C1604E /* YouWin.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC49A171F96F36800C1604E /* YouWin.png */; };
+		ECC49A1C1F96FE9A00C1604E /* YouLose.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC49A161F96F36800C1604E /* YouLose.png */; };
+		ECC49A1D1F96FE9C00C1604E /* Target.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC49A151F96F36800C1604E /* Target.png */; };
+		ECC49A1E1F96FE9F00C1604E /* Projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC49A141F96F36800C1604E /* Projectile.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +45,13 @@
 		ECA4BA501F90B3A80016F559 /* SGGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGGViewController.m; sourceTree = "<group>"; };
 		ECA4BA521F90B8CC0016F559 /* SGGSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGGSprite.h; sourceTree = "<group>"; };
 		ECA4BA531F90B8CC0016F559 /* SGGSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGGSprite.m; sourceTree = "<group>"; };
+		ECC49A111F96F36800C1604E /* background-music-aac.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "background-music-aac.caf"; sourceTree = "<group>"; };
+		ECC49A121F96F36800C1604E /* pew-pew.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "pew-pew.wav"; sourceTree = "<group>"; };
+		ECC49A131F96F36800C1604E /* Player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Player.png; sourceTree = "<group>"; };
+		ECC49A141F96F36800C1604E /* Projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Projectile.png; sourceTree = "<group>"; };
+		ECC49A151F96F36800C1604E /* Target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Target.png; sourceTree = "<group>"; };
+		ECC49A161F96F36800C1604E /* YouLose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouLose.png; sourceTree = "<group>"; };
+		ECC49A171F96F36800C1604E /* YouWin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouWin.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +88,7 @@
 		ECA4BA311F90B2BB0016F559 /* SimpleGLKitGame */ = {
 			isa = PBXGroup;
 			children = (
+				ECC49A101F96F36800C1604E /* SGGResources */,
 				ECA4BA321F90B2BB0016F559 /* AppDelegate.h */,
 				ECA4BA331F90B2BB0016F559 /* AppDelegate.m */,
 				ECA4BA351F90B2BB0016F559 /* ViewController.h */,
@@ -99,6 +114,20 @@
 				ECA4BA491F90B3390016F559 /* OpenGLES.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ECC49A101F96F36800C1604E /* SGGResources */ = {
+			isa = PBXGroup;
+			children = (
+				ECC49A111F96F36800C1604E /* background-music-aac.caf */,
+				ECC49A121F96F36800C1604E /* pew-pew.wav */,
+				ECC49A131F96F36800C1604E /* Player.png */,
+				ECC49A141F96F36800C1604E /* Projectile.png */,
+				ECC49A151F96F36800C1604E /* Target.png */,
+				ECC49A161F96F36800C1604E /* YouLose.png */,
+				ECC49A171F96F36800C1604E /* YouWin.png */,
+			);
+			path = SGGResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,8 +189,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC49A181F96FE8500C1604E /* background-music-aac.caf in Resources */,
 				ECA4BA3F1F90B2BB0016F559 /* LaunchScreen.storyboard in Resources */,
+				ECC49A1E1F96FE9F00C1604E /* Projectile.png in Resources */,
+				ECC49A1A1F96FE8C00C1604E /* Player.png in Resources */,
 				ECA4BA3C1F90B2BB0016F559 /* Assets.xcassets in Resources */,
+				ECC49A191F96FE8900C1604E /* pew-pew.wav in Resources */,
+				ECC49A1D1F96FE9C00C1604E /* Target.png in Resources */,
+				ECC49A1B1F96FE9700C1604E /* YouWin.png in Resources */,
+				ECC49A1C1F96FE9A00C1604E /* YouLose.png in Resources */,
 				ECA4BA3A1F90B2BB0016F559 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
