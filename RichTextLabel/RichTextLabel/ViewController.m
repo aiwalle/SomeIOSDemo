@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "LJLabel.h"
 #import "NSString+Extension.h"
+#import "SDWebImageDownloader.h"
 @interface ViewController ()
 //@property (nonatomic, strong) UILabel *label;
 @property (weak, nonatomic) IBOutlet LJLabel *label;
@@ -38,11 +39,32 @@
 //    self.oneLabel.attributedText = atStr;
     
     
-    UIImage *image = [UIImage imageNamed:@"orthogon_1701"];
+//    UIImage *image = [UIImage imageNamed:@"orthogon_1701"];
+//    
+//    NSAttributedString *atStr = [NSString setText:@"我相信我如何。我" frontImages:@[image, image] imageSpan:0 font:[UIFont systemFontOfSize:33]];
+//    self.oneLabel.attributedText = atStr;
     
-    NSAttributedString *atStr = [NSString setText:@"我相信我如何。我" frontImages:@[image, image] imageSpan:0 font:[UIFont systemFontOfSize:33]];
-    self.oneLabel.attributedText = atStr;
     
+    
+    NSURL *url = [NSURL URLWithString:@"https://img.j1.com/images/flag/orthogon_170.jpg"];
+//    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:url options:0 progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+//        NSAttributedString *atStr = [NSString setText:@"我相信我如何。我" frontImages:@[image] imageSpan:0 font:[UIFont systemFontOfSize:33]];
+//        self.oneLabel.attributedText = atStr;
+//    }];
+    
+    
+//    [NSString attributedStringWithImageURL:url contentString:@"我相信sdfasfsdf何。我" complete:^(NSAttributedString *attStr) {
+//        self.oneLabel.attributedText = attStr;
+//    }];
+    
+    UIFont *font = [UIFont systemFontOfSize:30];
+    
+//    [NSString attributedStringWithImageURL:url contentString:@"hello" textFont:font complete:^(NSAttributedString *attStr) {
+//        self.oneLabel.attributedText = attStr;
+//    }];
+    [NSString attributedStringWithImageURL:url contentString:@"hello" imageSpan:200 textFont:font complete:^(NSAttributedString *attStr) {
+        self.oneLabel.attributedText = attStr;
+    }];
 }
 
 - (IBAction)btn1:(id)sender {

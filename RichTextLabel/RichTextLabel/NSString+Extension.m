@@ -43,10 +43,17 @@
     return size.height;
 }
 
+// 返回指定行数，字体的文字高度
+// warning: font有个lineHeight可以直接返回行高 😢
+//+ (CGFloat)heightForRowNumber:(int)number font:(UIFont *)font {
+//    CGSize size = [@"test" sizeForFont:font size:CGSizeMake(HUGE, HUGE) mode:NSLineBreakByWordWrapping];
+//    CGFloat oneLineHeight = size.height;
+//    // 确保高度能完全够用，在计算高度时+2
+//    return oneLineHeight * number + 2;
+//}
+
 + (CGFloat)heightForRowNumber:(int)number font:(UIFont *)font {
-    CGSize size = [@"test" sizeForFont:font size:CGSizeMake(HUGE, HUGE) mode:NSLineBreakByWordWrapping];
-    CGFloat oneLineHeight = size.height;
-    // 确保高度能完全够用，在计算高度时+2
+    CGFloat oneLineHeight = font.lineHeight;
     return oneLineHeight * number + 2;
 }
 
@@ -57,7 +64,6 @@
     [paragraphStyle setLineSpacing:space];
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
     return [attributedString copy];
-    
 }
 
 + (NSAttributedString *)changeWordSpaceForString:(NSString *)str WithSpace:(float)space {
@@ -97,13 +103,6 @@
     return [attributedString copy];
 }
 
-/**
- 为UILabel首部设置图片标签
- 
- @param text 文本
- @param images 标签数组
- @param span 标签间距
- */
 + (NSAttributedString *)setText:(NSString *)text frontImages:(NSArray<UIImage *> *)images imageSpan:(CGFloat)span font:(UIFont *)font
 {
     NSMutableAttributedString *textAttrStr = [[NSMutableAttributedString alloc] init];
@@ -127,13 +126,32 @@
     
     //设置显示文本
     [textAttrStr appendAttributedString:[[NSAttributedString alloc]initWithString:text]];
+    
     //设置间距
     if (span != 0) {
+        /*由于图片也会占用一个单位长度,所以带上空格数量，需要 *2 */
         [textAttrStr addAttribute:NSKernAttributeName value:@(span)
-                            range:NSMakeRange(0, images.count * 2/*由于图片也会占用一个单位长度,所以带上空格数量，需要 *2 */)];
+                            range:NSMakeRange(0, images.count * 2)];
     }
+    //设置字号
+    [textAttrStr addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, textAttrStr.length)];
     return [textAttrStr copy];
 }
 
++ (void)attributedStringWithImageURL:(NSURL *)url contentString:(NSString *)str imageSpan:(CGFloat)span textFont:(UIFont *)font complete:(downloadCompleteBlock)block{
+    [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:url options:0 progress:nil completed:^(UIImage * _Nullable image, NSData * _Nullable data, NSError * _Nullable error, BOOL finished) {
+        
+        if (finished && error == nil) {
+            NSAttributedString *atStr = [NSString setText:str frontImages:@[image] imageSpan:span font:font];
+            if (block) {
+                block(atStr);
+            } else {
+#ifdef DEBUG
+                NSLog(@"error-%@", error.description);
+#endif
+            }
+        }
+    }];
+}
 
 @end
