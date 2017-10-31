@@ -15,6 +15,9 @@
 		ECEF89E91FA6F0B600986D48 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEF89E81FA6F0B600986D48 /* main.m */; };
 		ECEF89F21FA6F11500986D48 /* LJPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEF89F11FA6F11500986D48 /* LJPageView.m */; };
 		ECEF89F51FA6F65000986D48 /* LJPageConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEF89F41FA6F65000986D48 /* LJPageConfiguration.m */; };
+		ECEF89F81FA81C1900986D48 /* LJTestTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEF89F71FA81C1900986D48 /* LJTestTitleView.m */; };
+		ECEF89FF1FA84DBE00986D48 /* LJModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEF89FE1FA84DBE00986D48 /* LJModel.m */; };
+		ECEF8A021FA8646000986D48 /* LJPageTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECEF8A011FA8646000986D48 /* LJPageTwoView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,12 @@
 		ECEF89F11FA6F11500986D48 /* LJPageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJPageView.m; sourceTree = "<group>"; };
 		ECEF89F31FA6F65000986D48 /* LJPageConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJPageConfiguration.h; sourceTree = "<group>"; };
 		ECEF89F41FA6F65000986D48 /* LJPageConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJPageConfiguration.m; sourceTree = "<group>"; };
+		ECEF89F61FA81C1900986D48 /* LJTestTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJTestTitleView.h; sourceTree = "<group>"; };
+		ECEF89F71FA81C1900986D48 /* LJTestTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJTestTitleView.m; sourceTree = "<group>"; };
+		ECEF89FD1FA84DBE00986D48 /* LJModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJModel.h; sourceTree = "<group>"; };
+		ECEF89FE1FA84DBE00986D48 /* LJModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJModel.m; sourceTree = "<group>"; };
+		ECEF8A001FA8646000986D48 /* LJPageTwoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LJPageTwoView.h; sourceTree = "<group>"; };
+		ECEF8A011FA8646000986D48 /* LJPageTwoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LJPageTwoView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +94,12 @@
 				ECEF89F11FA6F11500986D48 /* LJPageView.m */,
 				ECEF89F31FA6F65000986D48 /* LJPageConfiguration.h */,
 				ECEF89F41FA6F65000986D48 /* LJPageConfiguration.m */,
+				ECEF89F61FA81C1900986D48 /* LJTestTitleView.h */,
+				ECEF89F71FA81C1900986D48 /* LJTestTitleView.m */,
+				ECEF89FD1FA84DBE00986D48 /* LJModel.h */,
+				ECEF89FE1FA84DBE00986D48 /* LJModel.m */,
+				ECEF8A001FA8646000986D48 /* LJPageTwoView.h */,
+				ECEF8A011FA8646000986D48 /* LJPageTwoView.m */,
 			);
 			path = PageView;
 			sourceTree = "<group>";
@@ -161,6 +176,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECEF89DE1FA6F0B600986D48 /* ViewController.m in Sources */,
+				ECEF89F81FA81C1900986D48 /* LJTestTitleView.m in Sources */,
+				ECEF8A021FA8646000986D48 /* LJPageTwoView.m in Sources */,
+				ECEF89FF1FA84DBE00986D48 /* LJModel.m in Sources */,
 				ECEF89F21FA6F11500986D48 /* LJPageView.m in Sources */,
 				ECEF89E91FA6F0B600986D48 /* main.m in Sources */,
 				ECEF89DB1FA6F0B600986D48 /* AppDelegate.m in Sources */,

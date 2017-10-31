@@ -1,23 +1,23 @@
 //
-//  LJPageView.m
+//  LJPageTwoView.m
 //  SegmentView
 //
-//  Created by liang on 2017/10/30.
+//  Created by liang on 2017/10/31.
 //  Copyright © 2017年 liang. All rights reserved.
 //
 
-#import "LJPageView.h"
+#import "LJPageTwoView.h"
 #import "LJPageConfiguration.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
-@interface LJPageView()<UIScrollViewDelegate>
+@interface LJPageTwoView()<UIScrollViewDelegate>
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) NSMutableArray *titlesArr;
 @property (nonatomic, strong) UIView *bottomLine;
 @property (nonatomic, strong) UIView *selectedView;
 @end
 
-@implementation LJPageView
+@implementation LJPageTwoView
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -65,7 +65,7 @@
             [subview removeFromSuperview];
         }
     }
-
+    
     // 1.获取模型对应的类名
     NSObject *obj = models.firstObject;
     const char *objCls = class_getName([obj class]);
@@ -121,7 +121,7 @@
         subView.frame = CGRectMake(viewX, viewY, viewW, viewH);
         [self.scrollView addSubview:subView];
         
-//        subView.backgroundColor = i == 0 ? [UIColor redColor] : [UIColor blackColor];
+        //        subView.backgroundColor = i == 0 ? [UIColor redColor] : [UIColor blackColor];
         if (i == 0) {
             self.selectedView = subView;
             self.bottomLine.frame = CGRectMake(subView.frame.origin.x, CGRectGetMaxY(subView.frame)+2, subView.frame.size.width, 2);
@@ -189,7 +189,7 @@
     
     for (int i = 0; i < self.titlesArr.count; i++) {
         UIView *view = self.titlesArr[i];
-
+        
         CGFloat viewW = view.frame.size.width;
         if (self.configuration.titleWidth) {
             viewW = self.configuration.titleWidth;
@@ -270,13 +270,13 @@
         
         self.selectedView = targetView;
     }
-
+    
     [UIView animateWithDuration:0.25 animations:^{
         CGFloat labelFrameX = self.selectedView.frame.origin.x - self.scrollView.contentOffset.x;
         self.bottomLine.frame = CGRectMake(labelFrameX, self.bottomLine.frame.origin.y, self.bottomLine.frame.size.width, self.bottomLine.frame.size.height);
     }];
     CGFloat offsetX = self.selectedView.frame.origin.x - self.scrollView.frame.size.width * 0.5 + self.selectedView.frame.size.width * 0.5;
-
+    
     if (offsetX > 0) {
         if (offsetX >= (self.scrollView.contentSize.width - self.scrollView.frame.size.width)) {
             offsetX = (self.scrollView.contentSize.width - self.scrollView.frame.size.width);
@@ -295,7 +295,7 @@
     if (offsetX >= self.scrollView.contentSize.width - self.scrollView.frame.size.width || offsetX <= 0) {
         return;
     }
-
+    
     CGRect rect = CGRectMake(self.selectedView.frame.origin.x - offsetX, self.bottomLine.frame.origin.y, self.bottomLine.frame.size.width, self.bottomLine.frame.size.height);
     self.bottomLine.frame = rect;
 }

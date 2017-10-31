@@ -1,8 +1,8 @@
 //
-//  LJPageView.h
+//  LJPageTwoView.h
 //  SegmentView
 //
-//  Created by liang on 2017/10/30.
+//  Created by liang on 2017/10/31.
 //  Copyright © 2017年 liang. All rights reserved.
 //
 
@@ -16,19 +16,19 @@
 - (void)adjustTitleViewAppearanceWithTarget;
 @end
 
-@interface LJPageView : UIView
+@interface LJPageTwoView : UIView
 @property (nonatomic, strong) LJPageConfiguration *configuration;
 
 /**
  一般情况下的标题视图
-
+ 
  @param titles 标题数组
  */
 - (void)configWithTitles:(NSArray *)titles;
 
 /**
  自定义的标题视图和模型
-
+ 
  @param model 模型数组
  @param class 视图的类(这里暂时只支持纯代码实现的视图)
  @param size 视图的尺寸

@@ -13,7 +13,8 @@
 @property (nonatomic, strong) UIFont *titleFont;
 @property (nonatomic, strong) UIColor *selectedColor;
 @property (nonatomic, strong) UIColor *normalColor;
-@property (nonatomic, strong) UIView *customView;
 @property (nonatomic, assign) BOOL showBottomLine;
+@property (nonatomic, assign) CGFloat margin;
+@property (nonatomic, assign) CGFloat titleWidth;
 + (instancetype)defaultConfiguration;
 @end
