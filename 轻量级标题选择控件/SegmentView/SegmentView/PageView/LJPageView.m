@@ -43,7 +43,7 @@
     _scrollView.showsVerticalScrollIndicator = NO;
     _scrollView.bounces = NO;
     _scrollView.delegate = self;
-    _scrollView.backgroundColor = [UIColor whiteColor];
+//    _scrollView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_scrollView];
     
     _bottomLine = [UIView new];
@@ -99,7 +99,9 @@
     }
     
     
-    CGFloat viewW = self.bounds.size.width / 4;
+//    CGFloat viewW = self.bounds.size.width / 4;
+    
+    CGFloat viewW = size.width;
     for (int i = 0; i < models.count; i++) {
         NSObject *theModel = models[i];
         

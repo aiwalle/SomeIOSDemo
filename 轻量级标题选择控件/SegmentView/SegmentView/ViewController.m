@@ -45,7 +45,8 @@
 
 - (void)customTitleView {
     CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
-    LJPageView *pageView = [[LJPageView alloc] initWithFrame:CGRectMake(0, 100, screenW, 100)];
+    LJPageView *pageView = [[LJPageView alloc] initWithFrame:CGRectMake(0, 100, screenW, 150)];
+    pageView.backgroundColor = [UIColor greenColor];
     NSMutableArray *muArr = [NSMutableArray array];
     for (int i =0; i < 6; i++) {
         LJModel *model = [LJModel new];
@@ -54,7 +55,7 @@
         [muArr addObject:model];
         
     }
-    [pageView configWithModels:muArr customViewClass:[LJTestTitleView class] viewSize:CGSizeMake(70, 100)];
+    [pageView configWithModels:muArr customViewClass:[LJTestTitleView class] viewSize:CGSizeMake(150, 50)];
     [self.view addSubview:pageView];
 }
 
