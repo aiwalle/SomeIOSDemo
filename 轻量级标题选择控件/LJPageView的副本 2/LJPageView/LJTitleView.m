@@ -203,12 +203,12 @@
         
         if (i == 0) {
             if ([view conformsToProtocol:@protocol(adjustTitleViewProtocol)]) {
-                [(id<adjustTitleViewProtocol>)view adjustTitleViewAppearanceWithScale:1.2];
+                [(id<adjustTitleViewProtocol>)view adjustTitleViewAppearanceWithScale:1.0];
             }
             self.bottomLine.frame = CGRectMake(view.frame.origin.x, CGRectGetMaxY(view.frame)+2, view.frame.size.width, 2);
         } else {
             if ([view conformsToProtocol:@protocol(adjustTitleViewProtocol)]) {
-                [(id<adjustTitleViewProtocol>)view adjustTitleViewAppearanceWithScale:1.0];
+                [(id<adjustTitleViewProtocol>)view adjustTitleViewAppearanceWithScale:0.0];
             }
         }
         if (i == (self.titlesArr.count - 1)) {
@@ -302,10 +302,10 @@
         NSLog(@"scale---==%f", scale);
     }
     
-    [view setBackgroundColor:[UIColor colorWithRed:0.373 + (0.980 - 0.373) * scale green:0.396 - (0.396 - 0.271) * scale blue:0.459 - (0.459 - 0.196) * scale alpha:1]];
-    CGFloat minScale = 1.0;
-    CGFloat trueScale = minScale + (1.2 - minScale) * scale;
-    view.transform = CGAffineTransformMakeScale(trueScale, trueScale);
+//    [view setBackgroundColor:[UIColor colorWithRed:0.373 + (0.980 - 0.373) * scale green:0.396 - (0.396 - 0.271) * scale blue:0.459 - (0.459 - 0.196) * scale alpha:1]];
+//    CGFloat minScale = 1.0;
+//    CGFloat trueScale = minScale + (1.2 - minScale) * scale;
+//    view.transform = CGAffineTransformMakeScale(trueScale, trueScale);
     
     if ([view respondsToSelector:@selector(adjustTitleViewAppearanceWithScale:)]) {
         [(id<adjustTitleViewProtocol>)view adjustTitleViewAppearanceWithScale:scale];

@@ -55,17 +55,19 @@
     _nameLabel.frame = CGRectMake(0, CGRectGetMaxY(_iconImageView.frame), self.bounds.size.width, self.bounds.size.height / 10 * 3);
 }
 
-//- (void)adjustTitleViewAppearanceWithOrigin {
-//    self.iconImageView.backgroundColor = [UIColor purpleColor];
-//    self.nameLabel.textColor = [UIColor blackColor];
-//}
-//
-//- (void)adjustTitleViewAppearanceWithTarget {
-//    self.iconImageView.backgroundColor = [UIColor orangeColor];
-//    self.nameLabel.textColor = [UIColor redColor];
-//}
-
 - (void)adjustTitleViewAppearanceWithScale:(CGFloat)scale {
+    
+//    [view setBackgroundColor:[UIColor colorWithRed:0.373 + (0.980 - 0.373) * scale green:0.396 - (0.396 - 0.271) * scale blue:0.459 - (0.459 - 0.196) * scale alpha:1]];
+//    CGFloat minScale = 1.0;
+//    CGFloat trueScale = minScale + (1.2 - minScale) * scale;
+//    view.transform = CGAffineTransformMakeScale(trueScale, trueScale);
+    
+    self.nameLabel.textColor = [UIColor colorWithRed:0.373 + (0.980 - 0.373) * scale green:0.396 - (0.396 - 0.271) * scale blue:0.459 - (0.459 - 0.196) * scale alpha:1];
+    CGFloat minScale = 1.0;
+    CGFloat trueScale = minScale + (1.2 - minScale) * scale;
+    
+    self.transform = CGAffineTransformMakeScale(trueScale, trueScale);
+    
     
 }
 
