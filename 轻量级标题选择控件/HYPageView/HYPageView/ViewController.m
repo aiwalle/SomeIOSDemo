@@ -21,9 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    [self testCustomView];
+    [self testCustomView];
     
-    [self testOnlyLabel];
+//    [self testOnlyLabel];
 }
 
 - (void)testOnlyLabel {
